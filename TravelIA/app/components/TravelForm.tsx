@@ -42,6 +42,7 @@ export default function TravelForm() {
   const [region, setRegion] = useState('')
   const [country, setCountry] = useState('')
   const [budget, setBudget] = useState('')
+  const [duration, setDuration] = useState('')
   const [recommendations, setRecommendations] = useState<Recommendation[]>([])
   const [showRecommendations, setShowRecommendations] = useState(false)
 
@@ -49,9 +50,9 @@ export default function TravelForm() {
     e.preventDefault()
     // Simulating AI recommendation (replace with actual AI API call in production)
     const simulatedRecommendations = [
-      { place: "Playa del Carmen", description: "Hermosas playas y vida nocturna vibrante.", imageUrl: "/placeholder.svg?height=200&width=300" },
-      { place: "Cancún", description: "Resorts de lujo y aguas cristalinas.", imageUrl: "/placeholder.svg?height=200&width=300" },
-      { place: "Tulum", description: "Ruinas mayas y playas tranquilas.", imageUrl: "/placeholder.svg?height=200&width=300" },
+      { place: "Barcelona, España", description: "Ciudad cosmopolita con arquitectura única y playas hermosas.", imageUrl: "/placeholder.svg?height=200&width=300" },
+      { place: "Granada, España", description: "Hogar de la Alhambra, con rica historia y cultura andaluza.", imageUrl: "/placeholder.svg?height=200&width=300" },
+      { place: "San Sebastián, España", description: "Conocida por sus playas y su excelente gastronomía vasca.", imageUrl: "/placeholder.svg?height=200&width=300" },
     ]
     setRecommendations(simulatedRecommendations)
     setShowRecommendations(true)
@@ -73,9 +74,9 @@ export default function TravelForm() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="playa">Playa</SelectItem>
-                  <SelectItem value="bosque">Bosque</SelectItem>
-                  <SelectItem value="ciudad">Ciudad</SelectItem>
                   <SelectItem value="montaña">Montaña</SelectItem>
+                  <SelectItem value="ciudad">Ciudad</SelectItem>
+                  <SelectItem value="rural">Rural</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -84,8 +85,12 @@ export default function TravelForm() {
               <Input id="country" value={country} onChange={(e) => setCountry(e.target.value)} required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="budget">Presupuesto</Label>
+              <Label htmlFor="budget">Presupuesto (€)</Label>
               <Input id="budget" type="number" value={budget} onChange={(e) => setBudget(e.target.value)} required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="duration">Duración (días)</Label>
+              <Input id="duration" type="number" value={duration} onChange={(e) => setDuration(e.target.value)} required />
             </div>
             <Button type="submit" className="w-full bg-sky-500 hover:bg-sky-600">Buscar destinos</Button>
           </form>
