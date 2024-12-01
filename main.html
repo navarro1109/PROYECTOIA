@@ -82,14 +82,13 @@
                 </select>
                 <br><br>
 
-
                 <button type="Enviar">Enviar</button>
             </form>
         </div>
+        
         <div id="recomendaciones" class="cards-container"></div>
-    </div>
-    </main> 
 
+    </main> 
 
     <script>
     document.querySelector("form").addEventListener("submit", function (e) {
@@ -128,7 +127,6 @@
             // Generar dinámicamente las tarjetas
             recomendacionesContainer.innerHTML = recomendaciones.map(recom => `
                 <div class="card">
-
                     <h2>${recom.ubicacion}</h2>
                     <p>Tipo de viaje: ${recom.tipo}</p>
                     <p>Precio: $${recom.precio}</p>
@@ -139,8 +137,6 @@
             recomendacionesContainer.classList.add("visible");
         }, 1000); // Espera 1 segundo (la duración de la animación del formulario)
     });
-</script>
-
- 
+    </script>
 </body>
 </html>
